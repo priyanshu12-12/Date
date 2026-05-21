@@ -7,7 +7,7 @@
   <style>
     :root {
       --bg: #120f1a;
-      --card: rgba(15, 12, 24, 0.58);
+      --card: rgba(15, 12, 24, 0.75);
       --text: #fff8fc;
       --muted: #f4dbe7;
       --accent: #ff6fa9;
@@ -48,14 +48,15 @@
       background-position: center;
     }
 
+    /* Lighter overlay to see background better */
     .slide::before {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(10, 8, 18, 0.25),
-        rgba(10, 8, 18, 0.7)
+        rgba(10, 8, 18, 0.15),
+        rgba(10, 8, 18, 0.35)
       );
     }
 
@@ -74,7 +75,7 @@
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 28px;
       padding: 32px 24px;
-      backdrop-filter: blur(10px);
+      /* Removed backdrop-filter blur to see background clearly */
       box-shadow: var(--shadow);
     }
 
@@ -170,6 +171,239 @@
       color: #fff2c7;
     }
 
+    /* CSS Art - Rabbits and Heart */
+    .rabbits-scene {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 30px auto;
+    }
+
+    /* Left Rabbit */
+    .rabbit-left {
+      position: absolute;
+      left: 50px;
+      top: 120px;
+    }
+
+    .rabbit-left .body {
+      width: 60px;
+      height: 80px;
+      background: #f5f5f5;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+    }
+
+    .rabbit-left .head {
+      width: 50px;
+      height: 50px;
+      background: #f5f5f5;
+      border-radius: 50%;
+      position: absolute;
+      top: -30px;
+      left: 5px;
+    }
+
+    .rabbit-left .ear {
+      width: 12px;
+      height: 35px;
+      background: #f5f5f5;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+    }
+
+    .rabbit-left .ear.left {
+      top: -55px;
+      left: 8px;
+      transform: rotate(-15deg);
+    }
+
+    .rabbit-left .ear.right {
+      top: -55px;
+      right: 8px;
+      transform: rotate(15deg);
+    }
+
+    .rabbit-left .ear-inner {
+      width: 6px;
+      height: 20px;
+      background: #ffb6c1;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+      top: 5px;
+      left: 3px;
+    }
+
+    .rabbit-left .eye {
+      width: 6px;
+      height: 6px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+    }
+
+    .rabbit-left .eye.left {
+      left: 12px;
+    }
+
+    .rabbit-left .eye.right {
+      right: 12px;
+    }
+
+    .rabbit-left .nose {
+      width: 8px;
+      height: 6px;
+      background: #ffb6c1;
+      border-radius: 50%;
+      position: absolute;
+      top: 25px;
+      left: 21px;
+    }
+
+    /* Right Rabbit */
+    .rabbit-right {
+      position: absolute;
+      right: 50px;
+      top: 120px;
+    }
+
+    .rabbit-right .body {
+      width: 60px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+    }
+
+    .rabbit-right .head {
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -30px;
+      left: 5px;
+    }
+
+    .rabbit-right .ear {
+      width: 12px;
+      height: 35px;
+      background: #fff;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+    }
+
+    .rabbit-right .ear.left {
+      top: -55px;
+      left: 8px;
+      transform: rotate(-15deg);
+    }
+
+    .rabbit-right .ear.right {
+      top: -55px;
+      right: 8px;
+      transform: rotate(15deg);
+    }
+
+    .rabbit-right .ear-inner {
+      width: 6px;
+      height: 20px;
+      background: #ffb6c1;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+      top: 5px;
+      left: 3px;
+    }
+
+    .rabbit-right .eye {
+      width: 6px;
+      height: 6px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+    }
+
+    .rabbit-right .eye.left {
+      left: 12px;
+    }
+
+    .rabbit-right .eye.right {
+      right: 12px;
+    }
+
+    .rabbit-right .nose {
+      width: 8px;
+      height: 6px;
+      background: #ffb6c1;
+      border-radius: 50%;
+      position: absolute;
+      top: 25px;
+      left: 21px;
+    }
+
+    /* Heart */
+    .heart {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 48px;
+      background: #ff6fa9;
+      border-radius: 30px 30px 0 0;
+    }
+
+    .heart::before {
+      left: 15px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
+
+    .celebration-text {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 20px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 640px) {
       .content {
         padding: 26px 18px;
@@ -182,6 +416,10 @@
 
       .actions {
         flex-direction: column;
+      }
+
+      .rabbits-scene {
+        transform: scale(0.8);
       }
     }
   </style>
@@ -211,7 +449,7 @@
           and pretend we are the main characters for a while.
         </p>
         <div class="actions">
-          <span>Next idea coming up automatically...</span>
+          <button class="secondary next-btn">Next idea →</button>
         </div>
       </div>
     </section>
@@ -225,7 +463,7 @@
           where time somehow feels softer.
         </p>
         <div class="actions">
-          <span>Next idea coming up automatically...</span>
+          <button class="secondary next-btn">Next idea →</button>
         </div>
       </div>
     </section>
@@ -239,7 +477,7 @@
           would only make it more fun and memorable.
         </p>
         <div class="actions">
-          <span>Next idea coming up automatically...</span>
+          <button class="secondary next-btn">Next idea →</button>
         </div>
       </div>
     </section>
@@ -253,7 +491,7 @@
           it lasted a little longer.
         </p>
         <div class="actions">
-          <span>Next idea coming up automatically...</span>
+          <button class="secondary next-btn">Next idea →</button>
         </div>
       </div>
     </section>
@@ -267,7 +505,7 @@
           while the world feels far away.
         </p>
         <div class="actions">
-          <span>Final idea coming up automatically...</span>
+          <button class="secondary next-btn">Final idea →</button>
         </div>
       </div>
     </section>
@@ -288,6 +526,49 @@
       </div>
     </section>
 
+    <section class="slide" id="celebrationSlide" style="background: linear-gradient(135deg, #ffd1dc 0%, #ffb6c1 50%, #ffc0cb 100%);">
+      <div class="content">
+        <h1 style="color: var(--accent);">Yay! That just made my day! ❤️</h1>
+        <div class="rabbits-scene">
+          <div class="heart"></div>
+          <div class="rabbit-left">
+            <div class="body">
+              <div class="head">
+                <div class="ear left">
+                  <div class="ear-inner"></div>
+                </div>
+                <div class="ear right">
+                  <div class="ear-inner"></div>
+                </div>
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="nose"></div>
+              </div>
+            </div>
+          </div>
+          <div class="rabbit-right">
+            <div class="body">
+              <div class="head">
+                <div class="ear left">
+                  <div class="ear-inner"></div>
+                </div>
+                <div class="ear right">
+                  <div class="ear-inner"></div>
+                </div>
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="nose"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="celebration-text">Can't wait for our date! 🌟</p>
+        <div class="actions">
+          <button class="secondary" id="backBtn">Go back</button>
+        </div>
+      </div>
+    </section>
+
     <div class="progress" id="progress"></div>
   </main>
 
@@ -297,9 +578,13 @@
     const startBtn = document.getElementById('startBtn');
     const replayBtn = document.getElementById('replayBtn');
     const yesBtn = document.getElementById('yesBtn');
+    const backBtn = document.getElementById('backBtn');
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const celebrationSlide = document.getElementById('celebrationSlide');
 
     let current = 0;
     let slideshowTimer = null;
+    let celebrationIndex = slides.length - 1;
 
     function renderDots() {
       progress.innerHTML = '';
@@ -320,21 +605,32 @@
 
     function stopSlideshow() {
       if (slideshowTimer) {
-        clearInterval(slideshowTimer);
+        clearTimeout(slideshowTimer);
         slideshowTimer = null;
+      }
+    }
+
+    function advanceSlide() {
+      if (current < slides.length - 1) {
+        showSlide(current + 1);
+        slideshowTimer = setTimeout(advanceSlide, 3000);
+      } else {
+        stopSlideshow();
       }
     }
 
     function startSlideshow() {
       stopSlideshow();
       showSlide(1);
-      slideshowTimer = setInterval(() => {
-        if (current < slides.length - 1) {
-          showSlide(current + 1);
-        } else {
-          stopSlideshow();
-        }
-      }, 2000);
+      slideshowTimer = setTimeout(advanceSlide, 3000);
+    }
+
+    function goToNextSlide() {
+      stopSlideshow();
+      if (current < slides.length - 1) {
+        showSlide(current + 1);
+        slideshowTimer = setTimeout(advanceSlide, 3000);
+      }
     }
 
     startBtn.addEventListener('click', startSlideshow);
@@ -343,7 +639,17 @@
       stopSlideshow();
     });
     yesBtn.addEventListener('click', () => {
-      alert('Yay! That just made my day ❤️');
+      stopSlideshow();
+      showSlide(celebrationIndex);
+    });
+    
+    backBtn.addEventListener('click', () => {
+      showSlide(0);
+      stopSlideshow();
+    });
+    
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', goToNextSlide);
     });
 
     renderDots();
